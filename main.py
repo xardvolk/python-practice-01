@@ -58,6 +58,9 @@ def format_number(value):
     return str(value)
 
 
+# Счётчик успешно выполненных операций
+operations_count = 0
+
 while True:
     print()
     first = read_number("Введите первое число: ")
@@ -73,9 +76,10 @@ while True:
             print("\nОшибка: деление на ноль.")
         else:
             print(f"\nРезультат: {format_number(result)}")
+            operations_count += 1  # Увеличиваем счётчик только при успехе
 
     print()
     if not ask_continue("Хотите выполнить ещё одну операцию? (да/нет): "):
         break
 
-print("\nРабота программы завершена.")
+print(f"\nРабота программы завершена. Выполнено операций: {operations_count}")
